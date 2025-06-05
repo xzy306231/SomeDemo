@@ -1,0 +1,30 @@
+﻿<base:BaseComponent x:Class="LearnApp.Control.Component.Process"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnApp.Control.Component"
+                 xmlns:base="clr-namespace:LearnApp.Control" x:Name="ctl"
+             mc:Ignorable="d" >
+    <base:BaseComponent.Resources>
+        <BooleanToVisibilityConverter x:Key="b2v"/>
+    </base:BaseComponent.Resources>
+    <Viewbox>
+        <Grid>
+            <Rectangle Stroke="#AAA" StrokeDashArray="3,3" RadiusX="3" RadiusY="3" StrokeThickness="20" Visibility="{Binding IsSelected, Converter={StaticResource b2v},ElementName=ctl}"/>
+            <Path Fill="#2F66C6" Data="M591.451753 103.650256v113.732966H428.111855V103.650256h163.339898m30.248129-30.248129H397.863726v174.229224h223.836156V73.402127z"/>
+            <Path Fill="#2F66C6" Data="M660.417487 1024H364.792438L319.621898 982.862544 397.460417 222.626231h221.819615l85.09807 760.236313z m-282.315872-30.248129h270.216621l24.198503-22.58527-80.661678-718.292241H424.885388L351.483261 970.763293z" />
+            <Path Fill="#2F66C6" Data="M509.983458 477.517133L405.929894 373.866877l104.053564-104.053565 103.650256 104.053565zM448.680583 373.866877l61.302875 60.899566 60.899567-60.899566-60.899567-61.302875z" />
+            <Path Fill="#2F66C6" Data="M505.143757 635.210713l-132.68846-88.324537 137.528161-110.103191 136.721544 110.506499z m-80.661677-90.744388l80.661677 54.849941 88.727846-55.253249-85.09807-68.562426z" />
+            <Path Fill="#2F66C6" Data="M508.773533 806.616778L359.952737 697.723513l154.467113-98.810555 152.047263 109.699882z m-97.197322-107.280031l98.407247 71.788893 100.423789-64.126034-99.213864-71.385585z" />
+            <Path Fill="#2F66C6" Data="M664.450571 914.703427H352.693186a15.729027 15.729027 0 0 1-14.519102-10.486019A15.325719 15.325719 0 0 1 343.820402 887.278456l155.677038-114.136274a14.92241 14.92241 0 0 1 18.148877 0L673.323356 887.278456a15.325719 15.325719 0 0 1 5.646317 16.938952 16.132336 16.132336 0 0 1-14.519102 10.486019zM400.283576 884.455297h217.78653l-109.699882-80.661677z" />
+            <Path Fill="#2F66C6" Data="M482.961796 0m22.988578 0l0 0q22.988578 0 22.988578 22.988578l0 46.783773q0 22.988578-22.988578 22.988578l0 0q-22.988578 0-22.988578-22.988578l0-46.783773q0-22.988578 22.988578-22.988578Z"/>
+
+            <Button Margin="0,0,-150,0"  Visibility="{Binding IsSelected,Converter={StaticResource b2v}, ElementName=ctl}"  Content="X" FontSize="100" Foreground="Red" 
+        VerticalAlignment="Top" HorizontalAlignment="Right"  Style="{StaticResource DeleteButtonStyle}" Height="150" Width="150"
+        Click="Button_Click">
+            </Button>
+        </Grid>
+
+    </Viewbox>
+</base:BaseComponent>

@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\iconfont.ttf" />
+    <None Remove="Images\Button.png" />
+    <None Remove="Images\Check.png" />
+    <None Remove="Images\Pipe.png" />
+    <None Remove="Images\Port.png" />
+    <None Remove="Images\Process.png" />
+    <None Remove="Images\Radio.png" />
+    <None Remove="Images\Ship.png" />
+    <None Remove="Images\Tank.png" />
+    <None Remove="Images\Toggle.png" />
+    <None Remove="Images\Wantou.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\iconfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Check.png" />
+    <Resource Include="Images\Pipe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Port.png" />
+    <Resource Include="Images\Process.png" />
+    <Resource Include="Images\Radio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Ship.png" />
+    <Resource Include="Images\Tank.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Toggle.png" />
+    <Resource Include="Images\Wantou.png" />
+  </ItemGroup>
+
+</Project>

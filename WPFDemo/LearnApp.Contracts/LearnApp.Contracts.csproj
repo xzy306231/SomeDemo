@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+      <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LearnApp.Shared\LearnApp.Shared.csproj" />
+    <ProjectReference Include="..\LearningApp.Utils\LearnApp.Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CommunityToolkit.Mvvm">
+      <HintPath>D:\Program Files (x86)\Nuget\.nuget\communitytoolkit.mvvm\7.1.2\lib\net5.0\CommunityToolkit.Mvvm.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Base\" />
+    <Folder Include="Schedule\" />
+    <Folder Include="Tank\" />
+  </ItemGroup>
+
+</Project>

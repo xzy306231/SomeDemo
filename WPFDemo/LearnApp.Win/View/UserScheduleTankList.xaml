@@ -1,0 +1,150 @@
+﻿<ctrl:BaseUserControl x:Class="LearnApp.Win.View.UserScheduleTankList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnApp.Win.View"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:behavior="clr-namespace:LearnApp.Win.Behaviors"         
+             xmlns:ctrl="clr-namespace:LearnApp.Control;assembly=LearnApp.Control"
+             xmlns:convert="clr-namespace:LearnApp.Win.Converters"
+             mc:Ignorable="d"   Background="#F7F7F7">
+    <ctrl:BaseUserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="visibility"/>
+    </ctrl:BaseUserControl.Resources>
+
+    <Grid MinWidth="1300" MaxWidth="2000" Margin="10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,10">
+            <TextBox  Width="150" Height="30" Margin="0,0,-1,0" Tag="排产名称"/>
+            <Button Width="30" Height="30"  Margin="-2,0" Content="&#xe60f;" FontFamily="{StaticResource Iconfont}" Background="#2F66C6" Foreground="White" FontSize="15" Command="{Binding GetDataCommand}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="0,3,3,0"/>
+                        <Setter Property="BorderBrush" Value="#FF2C628B"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#3C83FF"/>
+                                <Setter Property="BorderBrush" Value="#3C83FF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Width="65" Height="30" Content="新增"  Margin="10,0,0,0" Command="{Binding OpenViewCommand}"/>
+            <Button Width="65" Height="30" Content="归档"  Margin="10,0,0,0"/>
+        </StackPanel>
+
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Background="White" Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding ScheduleSource}" Margin="20,10" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <ItemContainerTemplate>
+                        <Border x:Name="border" Width="325" Height="160" Margin="5"   BorderThickness="2"  BorderBrush="Gainsboro"  CornerRadius="5" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="45"/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Polygon Points="275,0 325,0 325,50" Fill="{Binding State}" Margin="-2,-3" x:Name="stateBack"/>
+                                <TextBlock Margin="-8,-4" FontSize="12" HorizontalAlignment="Right"  Height="25" VerticalAlignment="Top" Block.TextAlignment="Center" Padding="0,5,0,0"
+                                           Text="{Binding State}" Foreground="White" x:Name="state" >
+                                    <TextBlock.RenderTransform>
+                                        <RotateTransform Angle="45"/>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+
+                                <TextBlock Margin="10,10,0,0" FontSize="16" VerticalAlignment="Center"  x:Name="txt">
+                                   <Run Text="排产名称:"/>              
+                                    <Hyperlink TextDecorations="None"  Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.LoadGanttCommand}" CommandParameter="{Binding PlanCode}">
+                                          <Run Text="{Binding PlanName}" Foreground="#3C83FF" ToolTip="{Binding PlanName}" />
+                                    </Hyperlink>
+                                </TextBlock>
+
+                                <TextBlock Margin="10,0" FontSize="16" Grid.Row="1" VerticalAlignment="Center">
+                                   <Run Text="开始时间:"/>
+                                   <Run Text="{Binding StartTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" />
+                                </TextBlock>
+
+                                <TextBlock Margin="10,0" FontSize="16" Grid.Row="2" VerticalAlignment="Center">
+                                   <Run Text="结束时间:"/>
+                                   <Run Text="{Binding ResultList[0].EndTime,StringFormat='yyyy-MM-dd HH:mm:ss'}"/>
+                                </TextBlock>
+
+                                <TextBlock Margin="10,0" FontSize="16" Grid.Row="3" VerticalAlignment="Center">
+                                        <Run Text="创建时间:"/>
+                                       <Run Text="{Binding CreateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" />
+                                </TextBlock>
+
+                                <StackPanel Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <TextBlock Margin="10,0" FontSize="16"  VerticalAlignment="Center">
+                                        <Run Text="周期:"/>
+                                        <Run Text="{Binding TimeLength}" />
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                    <TextBlock Text="创建人:" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="16">
+                                        <Run Text="{Binding CreateUserName}"/>
+                                    </TextBlock>
+                                    <Button Content="&#xe601;" ToolTip="查看" FontFamily="{StaticResource Iconfont}" Background="Transparent" Style="{StaticResource btnBackground}" Foreground="#5784D3" FontSize="20" 
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.LoadGanttCommand}" CommandParameter="{Binding PlanCode}"/>
+                                    <Button Content="&#xe618;" ToolTip="复制" FontFamily="{StaticResource Iconfont}" Background="Transparent" Style="{StaticResource btnBackground}" Foreground="#5784D3" FontSize="20"/>
+                                    <Button Content="&#xe66b;" ToolTip="删除" FontFamily="{StaticResource Iconfont}" Background="Transparent" Style="{StaticResource btnBackground}" Foreground="Red" FontSize="25" 
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.DeleteDataCommand}" CommandParameter="{Binding}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <ItemContainerTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#E4EFFF"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#E4EFFF"/>
+                            </Trigger>
+                            <DataTrigger Binding="{Binding State }" Value="2">
+                                <Setter TargetName="state" Property="Text" Value="成功"/>
+                                <Setter TargetName="stateBack" Property="Fill" Value="#518E33"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding State }" Value="1">
+                                <Setter TargetName="state" Property="Text" Value="计算中"/>
+                                <Setter TargetName="state" Property="FontSize" Value="10"/>
+                                <Setter TargetName="stateBack" Property="Fill" Value="#1564BE"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding State }" Value="3">
+                                <Setter TargetName="state" Property="Text" Value="失败"/>
+                                <Setter TargetName="stateBack" Property="Fill" Value="#A33333"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding State }" Value="4">
+                                <Setter TargetName="state" Property="Text" Value="无结果"/>
+                                <Setter TargetName="state" Property="FontSize" Value="10"/>
+                                <Setter TargetName="stateBack" Property="Fill" Value="#8A8A8A"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding State }" Value="5">
+                                <Setter TargetName="state" Property="Text" Value="草稿"/>
+                                <Setter TargetName="stateBack" Property="Fill" Value="#8A8A8A"/>
+                            </DataTrigger>
+                        </ItemContainerTemplate.Triggers>
+                    </ItemContainerTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <ctrl:Pagination Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" DataContext="{Binding PaginationModel}"/>
+
+        <Grid Grid.Row="1" Background="#DFE0E2" Visibility="{Binding IsLoading, Converter={StaticResource visibility } }">
+            <ctrl:Load  Message="加载中..."/>
+        </Grid>
+    </Grid>
+</ctrl:BaseUserControl>

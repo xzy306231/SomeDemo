@@ -1,0 +1,22 @@
+﻿<base:BaseComponent x:Class="LearnApp.Control.Component.Ship"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnApp.Control.Component"
+                 xmlns:base="clr-namespace:LearnApp.Control" x:Name="ctl"
+             mc:Ignorable="d" >
+    <base:BaseComponent.Resources>
+        <BooleanToVisibilityConverter x:Key="b2v"/>
+    </base:BaseComponent.Resources>
+    <Viewbox>
+        <Grid>
+            <Rectangle Stroke="#AAA" StrokeDashArray="3,3" RadiusX="3" RadiusY="3" StrokeThickness="20" Visibility="{Binding IsSelected, Converter={StaticResource b2v},ElementName=ctl}"/>
+            <Path Fill="{Binding FillBrush}" Data="M0 691.6608L126.464 1024h1165.568L1536 691.6608H0z m1273.9584 215.552c-27.136 0-45.1584-26.9312-45.1584-53.8624 0-26.9824 18.0736-53.9136 45.1584-53.9136 27.136 0 45.2096 26.9312 45.2096 53.9136 0 35.8912-27.136 53.8624-45.2096 53.8624zM1219.7888 0h-135.5776v440.1152h135.5776V0z m-225.8944 0h-126.464v440.1152h126.464V0z m325.2736 476.0576H768V386.2528H162.6112v251.4944h1156.5568V476.0576z m-1030.0416 80.896c-27.136 0-45.1584-18.0224-45.1584-44.9536s18.0736-53.9136 45.1584-53.9136c27.136 0 45.1584 26.9824 45.1584 53.9136 0 26.9312-18.0736 44.9024-45.1584 44.9024z m180.736 8.96c-27.136 0-54.272-26.9824-54.272-53.9136 0-26.9312 18.1248-53.9136 45.2096-53.9136 27.136 0 45.1584 26.9824 45.1584 53.9136 9.0624 26.9312-9.0112 53.9136-36.1472 53.9136z m162.6112 0c-27.136 0-45.1584-26.9824-45.1584-53.9136 0-26.9312 18.0736-53.9136 45.1584-53.9136 27.136 0 45.1584 26.9824 45.1584 53.9136 0 26.9312-18.0736 53.9136-45.1584 53.9136z" />
+            <Button Margin="0,0,-150,0"  Visibility="{Binding IsSelected,Converter={StaticResource b2v}, ElementName=ctl}"  Content="X" FontSize="100" Foreground="Red" 
+        VerticalAlignment="Top" HorizontalAlignment="Right"  Style="{StaticResource DeleteButtonStyle}" Height="150" Width="150"
+        Click="Button_Click">
+            </Button>
+        </Grid>
+    </Viewbox>
+</base:BaseComponent>

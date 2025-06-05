@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="LearnApp.Win.View.UserChart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnApp.Win.View"
+             xmlns:select="clr-namespace:LearnApp.Win.TempSelector"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <select:ChatTemplateSelector x:Key="ChatTemplateSelector"/>
+    </UserControl.Resources>
+    <DockPanel Background="White">
+        <!--顶部头内容-->
+        <Border DockPanel.Dock="Top" Padding="20,0" Height="62" BorderBrush="#ededed" SnapsToDevicePixels="True" BorderThickness="0,0,0,1.5">
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="郝帅" FontSize="18"></TextBlock>
+        </Border>
+
+        <Grid DockPanel.Dock="Bottom" Height="150" Margin="2">
+            <TextBox  Text="{Binding Message}"/>
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="发送"  Width="50" Height="30"
+                    Command="{Binding SendCommand }" Margin="10,5"/>
+        </Grid>
+
+
+        <!--对话列表-->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
+            <ItemsControl ItemsSource="{Binding List}"  HorizontalContentAlignment="Stretch" ItemTemplateSelector="{StaticResource ChatTemplateSelector}" x:Name="chats" Background="White" Margin="10">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.Template>
+                    <ControlTemplate TargetType="{x:Type ItemsControl}">
+                        <Grid>
+                            <ItemsPresenter></ItemsPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+            </ItemsControl>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

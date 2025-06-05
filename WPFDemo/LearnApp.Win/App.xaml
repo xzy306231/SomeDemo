@@ -1,0 +1,22 @@
+﻿<Application x:Class="LearnApp.Win.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:LearnApp.Win"
+             xmlns:vm="clr-namespace:LearnApp.ViewModel;assembly=LearnApp.ViewModel">
+    <Application.Resources>
+        <ResourceDictionary>
+            <FontFamily x:Key="Iconfont">pack://application:,,,/LearnApp.Control;component/Fonts/#iconfont</FontFamily>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LearnApp.Control;component/Resource/ButtonResource.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LearnApp.Control;component/Resource/ButtonBackground.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LearnApp.Control;component/Resource/GridResource.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LearnApp.Control;component/Resource/TextBoxResource.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LearnApp.Control;component/Resource/TabItemResource.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LearnApp.Control;component/Resource/ComboBoxStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LearnApp.Control;component/Resource/ExpanderStyle.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LearnApp.Control;component/Resource/ChatOther.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LearnApp.Control;component/Resource/ChatOwner.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

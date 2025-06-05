@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DialogView\SelectOilWin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DialogView\Window1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\NavigationWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Pages\TankBaseInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Pages\TankInitStock.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Pages\TankScheduleConfig.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Pages\TankSchemeConfig.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Pages\TankShipPlan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserCanvasGantt.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserChart.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserConfig.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserControl1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserGantt.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserLiquidTrend.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserOil.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserSchedule.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserScheduleRes.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserScheduleTank.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserScheduleTankList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Window1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="DialogView\SelectOilWin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DialogView\Window1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\NavigationWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Pages\TankBaseInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Pages\TankInitStock.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Pages\TankScheduleConfig.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Pages\TankSchemeConfig.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Pages\TankShipPlan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserCanvasGantt.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserChart.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserConfig.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserControl1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserGantt.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserLiquidTrend.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserOil.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserSchedule.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserScheduleRes.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserScheduleTank.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserScheduleTankList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Window1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

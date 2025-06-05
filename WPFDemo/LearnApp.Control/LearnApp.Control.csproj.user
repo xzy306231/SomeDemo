@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Component\Pipe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Component\Port.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Component\Process.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Component\Ship.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Component\Tank.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Component\Wantou.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Load.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pagination.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Waiting.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Component\Pipe.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Component\Port.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Component\Process.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Component\Ship.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Component\Tank.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Component\Wantou.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Load.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pagination.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\ButtonBackground.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\ButtonResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\ChatOther.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\ChatOwner.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\ComboBoxStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\ExpanderStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\GridResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\TabItemResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\TextBoxResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Waiting.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

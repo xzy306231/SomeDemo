@@ -1,0 +1,23 @@
+﻿<base:BaseComponent x:Class="LearnApp.Control.Component.Pipe"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnApp.Control.Component"
+             xmlns:base="clr-namespace:LearnApp.Control"
+             mc:Ignorable="d"  x:Name="ctl">
+    <base:BaseComponent.Resources>
+        <BooleanToVisibilityConverter x:Key="b2v"/>
+    </base:BaseComponent.Resources>
+    <Viewbox>
+        <Grid>
+            <Rectangle Stroke="#AAA" StrokeDashArray="3,3" RadiusX="3" RadiusY="3" StrokeThickness="20" Visibility="{Binding IsSelected, Converter={StaticResource b2v},ElementName=ctl}"/>
+            <Path Fill="{Binding FillBrush}" Data="M219.355429 877.714286L219.428571 950.857143a73.142857 73.142857 0 0 1-73.142857 73.142857H73.142857a73.142857 73.142857 0 0 1-73.142857-73.142857v-73.142857h219.355429zM0 438.857143a292.571429 292.571429 0 1 1 585.142857 0h0.292572v256a109.714286 109.714286 0 0 0 219.428571 0L804.790857 365.714286H1024V219.428571h-219.428571l0.146285 4.534858A74.24 74.24 0 0 1 804.571429 219.428571V73.142857a73.142857 73.142857 0 0 1 73.142857-73.142857h73.142857a73.142857 73.142857 0 0 1 73.142857 73.142857v73.142857h0.292571v548.571429a329.142857 329.142857 0 0 1-658.285714 0V658.285714H365.714286V438.857143a73.142857 73.142857 0 1 0-146.285715 0l-0.073142 292.571428H0V438.857143z" />
+
+            <Button Margin="0,0,-150,0"  Visibility="{Binding IsSelected,Converter={StaticResource b2v}, ElementName=ctl}"  Content="X" FontSize="100" Foreground="Red" 
+                    VerticalAlignment="Top" HorizontalAlignment="Right"  Style="{StaticResource DeleteButtonStyle}" Height="150" Width="150"
+                    Click="Button_Click">
+            </Button>
+        </Grid>
+    </Viewbox>
+</base:BaseComponent>

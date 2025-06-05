@@ -1,0 +1,168 @@
+﻿<dia:BaseDialogWindow x:Class="LearnApp.Win.DialogView.SelectOilWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LearnApp.Win.DialogView"
+        xmlns:dia='clr-namespace:LearnApp.Control;assembly=LearnApp.Control'
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:convert="clr-namespace:LearnApp.Win.Converters" 
+        mc:Ignorable="d" 
+        Title="SelectOilWin" Height="450" Width="800" WindowStartupLocation="CenterScreen" >
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="-1"/>
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <convert:TextConverter x:Key="text"/>
+    </Window.Resources>
+    <Grid Margin="10" x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="原油查询:" VerticalAlignment="Center"/>
+            <TextBox Width="100" Height="25" Margin="10,0" Tag="原油名称" Text="" x:Name="txtBox" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="KeyUp">
+                        <i:InvokeCommandAction Command="{Binding SearchCommand}" PassEventArgsToCommand="True" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <ComboBox Height="30" Width="130" Margin="10,0" Style="{StaticResource PropComboBoxStyle}" SelectedIndex="0">
+                <ComboBoxItem  Content="输入比例（总和100）"/>
+                <ComboBoxItem  Content="输入量"/>
+            </ComboBox>
+            <TextBlock VerticalAlignment="Center" Margin="10,0" >
+           <Run Text="比例总和:"/>
+           <Run Text="100%"/>
+           <Run Text=" 剩余"/>
+           <Run Text="0"/>
+            </TextBlock>
+            <CheckBox Content="油种首字母分组" VerticalAlignment="Center" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Grid Width="{Binding ElementName=grid, Path=ActualWidth}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="组分解析:" VerticalAlignment="Center"/>
+                <TextBox Height="26"  Margin="0,0" Grid.Column="1" Tag="A:B=40:60"/>
+                <Button Content="解析" Height="25" Width="40" Grid.Column="2" HorizontalAlignment="Center"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Grid Width="{Binding ElementName=grid,Path=ActualWidth}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="已选原油:" VerticalAlignment="Center"/>
+                <Border BorderThickness="1" MinHeight="35" BorderBrush="#DDDEE1"  Grid.Column="1" Margin="0,5" CornerRadius="4">
+                    <ItemsControl ItemsSource="{Binding SelectOils}" VerticalAlignment="Center" Margin="0,5">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <ItemContainerTemplate>
+                                <StackPanel Orientation="Horizontal" Background="#CFE7FF" Margin="5,1" MinHeight="25" x:Name="stack">
+                                    <TextBlock Text="{Binding OilName}" VerticalAlignment="Center" Margin="5,0" Foreground="#1A57C1" x:Name="txt"/>
+                                    <TextBox Text="{Binding Percent}" Background="White" MinWidth="40" TextAlignment="Center"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-5" Background="#C3C3C3" CornerRadius="5" x:Name="border">
+                                        <Button Content="&#xeaf2;" FontFamily="{StaticResource Iconfont}" Foreground="White" 
+                                           Background="Transparent" Command="{Binding RelativeSource={RelativeSource AncestorType=Window },Path=DataContext.RemoveSelectOilCommand}" 
+                                           CommandParameter="{Binding}" x:Name="btn"/>
+                                    </Border>
+                                </StackPanel>
+                                <ItemContainerTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding Percent}" Value="0">
+                                        <Setter TargetName="stack" Property="Background" Value="#FDE2E2"/>
+                                        <Setter TargetName="txt" Property="Foreground" Value="#F77E6C"/>
+                                    </DataTrigger>
+                                    <Trigger SourceName="border" Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="btn" Value="#F77E6C"/>
+                                    </Trigger>
+                                </ItemContainerTemplate.Triggers>
+                            </ItemContainerTemplate>
+
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+                <Button Content="清空" Height="25" Width="40" Grid.Column="2" Command="{Binding ClearCommand}"/>
+            </Grid>
+        </StackPanel>
+        <Border BorderThickness="1" Height="1" BorderBrush="#DDDEE1" Grid.Row="2" VerticalAlignment="Bottom"/>
+        <Border BorderThickness="1" Height="1" BorderBrush="#DDDEE1" Grid.Row="4" VerticalAlignment="Top"/>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="取消" Width="50" Margin="5,5" Height="30" Background="White" Foreground="#2F66C6" Click="Button_Click_1"/>
+            <Button Content="确定" Width="50" Margin="5,5"  Click="Button_Click"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="3">
+            <ItemsControl ItemsSource="{Binding Oils}">
+                <ItemsControl.ItemTemplate>
+                    <ItemContainerTemplate>
+                        <Border Margin="3,3" BorderThickness="1" x:Name="border" CornerRadius="3" Height="30">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Content="{Binding OilName,Converter={StaticResource text}}" VerticalAlignment="Center" ToolTip="{Binding OilName}"
+                                     x:Name="check" Margin="5,0" IsChecked="{Binding IsChecked}" FontSize="13">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Checked">
+                                            <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor},Path=DataContext.CheckCommand}"  CommandParameter="{Binding}"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="Unchecked">
+                                            <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor},Path=DataContext.UnCheckCommand}"  CommandParameter="{Binding}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </CheckBox>
+                                <TextBox Width="40" Height="20" Margin="5,0" Text="{Binding Percent}" 
+                                    Background="#E8E8E8"  Name="txt" TextAlignment="Center"  VerticalContentAlignment="Center" 
+                                    Grid.Column="1" HorizontalAlignment="Left"/>
+                            </Grid>
+                        </Border>
+                        <ItemContainerTemplate.Triggers>
+                            <Trigger SourceName="check" Property="IsChecked" Value="true">
+                                <Setter  TargetName="border" Property="Background" Value="#ECF5FF"/>
+                                <Setter  TargetName="border" Property="BorderBrush" Value="#CFE7FF"/>
+                                <Setter TargetName="txt" Property="Background" Value="white"/>
+                                <Setter TargetName="check" Property="Foreground" Value="#1A57C1"/>
+                            </Trigger>
+                            <Trigger SourceName="check" Property="IsChecked" Value="false">
+                                <Setter TargetName="txt" Property="Text" Value="0"/>
+                                <Setter TargetName="txt" Property="Background" Value="#E8E8E8"/>
+                            </Trigger>
+                            <DataTrigger Binding="{Binding IsSelect}" Value="true">
+                                <Setter  TargetName="border" Property="Background" Value="#E1F3D8"/>
+                                <Setter  TargetName="border" Property="BorderBrush" Value="#A9E38C"/>
+                            </DataTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition SourceName="check" Property="IsChecked" Value="true"/>
+                                    <Condition SourceName="txt" Property="Text" Value="0"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="border" Property="Background" Value="#FDE2E2"/>
+                                <Setter TargetName="check" Property="Foreground" Value="#F77E6C"/>
+                            </MultiTrigger>
+                        </ItemContainerTemplate.Triggers>
+                    </ItemContainerTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</dia:BaseDialogWindow>

@@ -1,0 +1,22 @@
+﻿<base:BaseComponent x:Class="LearnApp.Control.Component.Wantou"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnApp.Control.Component"
+                 xmlns:base="clr-namespace:LearnApp.Control" x:Name="ctl"
+             mc:Ignorable="d" >
+    <base:BaseComponent.Resources>
+        <BooleanToVisibilityConverter x:Key="b2v"/>
+    </base:BaseComponent.Resources>
+    <Viewbox>
+        <Grid>
+            <Rectangle Stroke="#AAA" StrokeDashArray="3,3" RadiusX="3" RadiusY="3" StrokeThickness="20" Visibility="{Binding IsSelected, Converter={StaticResource b2v},ElementName=ctl}"/>
+            <Path Fill="#2F66C6" Data="M780.8 640H640v-1.2288a36.9536 36.9536 0 0 0-1.2288 1.2288H640v140.8h12.8v89.6H140.8v-89.6h12.8V640h12.8v-106.3296C166.4 330.8288 330.8288 166.4 533.6704 166.4H640v-12.8h140.8v-12.8h89.6v512h-89.6v-12.8z m0-460.8h-115.2v435.2h115.2V179.2z m-140.8 12.8h-106.3296C344.9728 192 192 344.9728 192 533.6704V640h416.384A62.5664 62.5664 0 0 1 640 608.384V192zM179.2 665.6v115.2h435.2v-115.2H179.2z m-12.8 140.8v38.4h460.8v-38.4H166.4z m678.4-640h-38.4v460.8h38.4V166.4z" />
+            <Button Margin="0,0,-150,0"  Visibility="{Binding IsSelected,Converter={StaticResource b2v}, ElementName=ctl}"  Content="X" FontSize="100" Foreground="Red" 
+        VerticalAlignment="Top" HorizontalAlignment="Right"  Style="{StaticResource DeleteButtonStyle}" Height="150" Width="150"
+        Click="Button_Click">
+            </Button>
+        </Grid>
+    </Viewbox>
+</base:BaseComponent>
