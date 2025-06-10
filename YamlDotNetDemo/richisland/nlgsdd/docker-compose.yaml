@@ -1,0 +1,57 @@
+version: '3'
+services:
+  ytyh_gsdd_internaltank:
+    container_name: ytyh_gsdd_internaltank
+    image: internaltank:v25.6.9.1131-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/gsdd_internaltank.json:/app/appsettings.json
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: A
+    networks:
+      default:
+        ipv4_address: 172.30.0.144
+  ytyh_gsdd_BB:
+    container_name: ytyh_gsdd_BB
+    image: jcfw-service:v25.6.9.1437-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/gsdd_bb.json:/app/appsettings.json
+    - /richisland/gsdd/file:/app/wwwroot/File/ExcelTemp
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: A
+    networks:
+      default:
+        ipv4_address: 172.30.0.124
+  ytyh_gsdd_tanktracked:
+    container_name: ytyh_gsdd_tanktracked
+    image: tanktracked:v25.6.5.858-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/tanktracked.json:/app/appsettings.json
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: '1'
+    networks:
+      default:
+        ipv4_address: 172.30.0.159
+networks:
+  default:
+    external:
+      name: radp-net
+volumes: {}
+

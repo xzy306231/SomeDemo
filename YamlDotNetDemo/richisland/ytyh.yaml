@@ -1,0 +1,163 @@
+version: 3
+services:
+  ytyh_settingcenter:
+    container_name: ytyh_settingcenter
+    image: settingcenter:v24.11.29-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/settingcenter.json:/root/settingcenter/appsettings.json
+    - /richisland/ytyh/config/settingcenter.json:/root/settingcenter/appsettings.Development.json
+    ports:
+    - 5000:5000
+    environment:
+      TZ: Asia/Shanghai
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.100
+  ytyh_oop:
+    container_name: ytyh_oop
+    image: oop:v25.5.19.1144-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/opp.json:/app/appsettings.json
+    ports:
+    - 8088:8088
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: 1
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.101
+  ytyh_job:
+    container_name: ytyh_job
+    image: job:v25.6.7.1625-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/job.json:/app/appsettings.json
+    ports:
+    - 8091:8091
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: 1
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.121
+  ytyh_internalcrude:
+    container_name: ytyh_internalcrude
+    image: internalcrude:v25.6.9.1550-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/internalcrude.json:/app/appsettings.json
+    - /home/dockerdata/gofastdfs/data/files/fdkj:/app/files
+    ports:
+    - 8092:8092
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: 1
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.158
+  ytyh_gateway:
+    container_name: ytyh_gateway
+    image: gateway:v25.03.12.1-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/gateway.json:/app/appsettings.json
+    ports:
+    - 8000:8000
+    environment:
+      TZ: Asia/Shanghai
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.107
+  ytyh_blendoptimize:
+    container_name: ytyh_blendoptimize
+    image: blendoptimize:v25.6.9.1400-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/blendoptimize.json:/app/appsettings.json
+    ports:
+    - 8089:8089
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: 1
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.108
+  ytyh_baiscbusiness:
+    container_name: ytyh_baiscbusiness
+    image: baiscbusiness:v25.4.15.1458-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/baiscbusiness.json:/app/appsettings.json
+    ports:
+    - 8090:8090
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: 1
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.111
+  ytyh_bm:
+    container_name: ytyh_bm
+    image: bm:v25.4.2.1441-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/bm.json:/app/appsettings.json
+    ports:
+    - 8098:8098
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: 1
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.115
+networks:
+  default:
+    external:
+      name: radp-net
+volumes: {}

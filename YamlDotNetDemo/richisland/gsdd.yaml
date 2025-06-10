@@ -1,0 +1,132 @@
+version: 3
+services:
+  ytyh_gsdd_BB:
+    container_name: ytyh_gsdd_BB
+    image: repo.richisland.com:8082/gsdd/jcfw-service:v25.6.4.901-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/gsdd_bb.json:/app/appsettings.json
+    - /richisland/gsdd/file:/app/wwwroot/File/ExcelTemp
+    ports:
+    - 8291:8291
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: A
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.124
+  ytyh_gsdd_manualTank:
+    container_name: ytyh_gsdd_manualTank
+    image: repo.richisland.com:8082/gsdd/manualtank-service:v25.5.29.1543-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/gsdd_manualTank.json:/app/appsettings.json
+    ports:
+    - 8299:8299
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: A
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.156
+  ytyh_gsdd_reverse:
+    container_name: ytyh_gsdd_reverse
+    image: repo.richisland.com:8082/gsdd/reverse-service:v25.4.23.1543-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/gsdd_reverse.json:/app/appsettings.json
+    - /richisland/gsdd/file:/app/wwwroot/File/ExcelTemp
+    ports:
+    - 8293:8293
+    - 8003:8003
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: A
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.132
+  ytyh_gsdd_formula:
+    container_name: ytyh_gsdd_formula
+    image: repo.richisland.com:8082/gsdd/formula-service:v25.6.3.1437-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/gsdd_formula.json:/app/appsettings.json
+    ports:
+    - 8294:8294
+    - 8004:8004
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: A
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.133
+  ytyh_gsdd_tank:
+    container_name: ytyh_gsdd_tank
+    image: repo.richisland.com:8082/gsdd/tank-service:v25.6.6.1521-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/gsdd_tank.json:/app/appsettings.json
+    ports:
+    - 8295:8295
+    - 8005:8005
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: A
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.135
+  ytyh_gsdd_xjcs:
+    container_name: ytyh_gsdd_xjcs
+    image: repo.richisland.com:8082/gsdd/xjcs-service:v25.2.27.1529-master
+    restart: always
+    privileged: true
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /richisland/ytyh/config/gsdd_xjcs.json:/app/appsettings.json
+    ports:
+    - 8296:8296
+    environment:
+      TZ: Asia/Shanghai
+      DatacenterId: 1
+      WorkerId: 1
+      MachineId: A
+    logging:
+      driver: none
+    networks:
+      default:
+        ipv4_address: 172.30.0.138
+networks:
+  default:
+    external:
+      name: radp-net
+volumes: {}
