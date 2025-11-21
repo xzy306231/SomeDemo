@@ -7,6 +7,18 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            var commandMap = new Dictionary<string, Action>
+        {
+            { "Greet", () => Console.WriteLine("Hello!") },
+            { "Farewell", () => Console.WriteLine("Goodbye!") },
+            { "Thank", () => Console.WriteLine("Thank you!") }
+        };
+
+            // 执行命令
+            ExecuteCommand(commandMap, "Greet");
+            ExecuteCommand(commandMap, "Farewell");
+
+
             List<List<int>> data = new List<List<int>> { new List<int> { 3, 2 }, new List<int> { 4, 3 }, new List<int> { 2, 6 }, new List<int> { 6, 3 } };
         //    int[][] d = [ [ 3, 2 ], [4, 3 ], [ 2, 6], [ 6, 3 ] ];
             GetStaleServerCount(6, data, new int[] {3,2,6 }, 2);
@@ -60,6 +72,18 @@ namespace ConsoleApp1
             ListNode list2 = new ListNode { val = 2, next = new ListNode { val = 3, next = new ListNode { val = 4 } } };
             var node = MergeTwoLists(list1, list2);
             Console.ReadKey();
+        }
+
+        public static void ExecuteCommand(Dictionary<string, Action> commandMap, string command)
+        {
+            if (commandMap.ContainsKey(command))
+            {
+                commandMap[command].Invoke();
+            }
+            else
+            {
+                Console.WriteLine("未知命令");
+            }
         }
 
         static List<int> GetStaleServerCount(int n, List<List<int>> log_data, int[] query, int x)

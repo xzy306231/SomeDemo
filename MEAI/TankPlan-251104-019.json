@@ -1,0 +1,603 @@
+{
+  "basicInfo": {
+    "planName": "TankPlan-251104-019",
+    "planCode": "e7c6441b-3a1d7f",
+    "period": 7,
+    "startTime": "2025-10-15 10:00:00",
+    "reamrk": null,
+    "remark": null,
+    "createUserName": "许之洋",
+    "createUser": "xuzhiyang",
+    "state": 1,
+    "createTime": "2025-11-04 16:11:36",
+    "readTankDataTime": "2025-10-15 10:00:00",
+    "endTime": "2025-10-22 04:10:02",
+    "noneTankState": null,
+    "id": "0"
+  },
+  "initStock": [
+    {
+      "areaCode": "TankArea0019",
+      "areaName": "北山原油罐区",
+      "tankList": [
+        {
+          "scheduleId": "0",
+          "tankName": "T-105",
+          "tankCode": "Tank0233",
+          "areaName": "北山原油罐区",
+          "areaCode": "TankArea0019",
+          "warningCubage": 22583,
+          "availableWeight": 14934,
+          "status": "1",
+          "workRatio": 0,
+          "isVaild": true,
+          "switchedWeight": 0,
+          "carrySize": 0,
+          "spareTime": 0,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "4113",
+              "oilName": "罕戈",
+              "oilShortName": "",
+              "oilCounted": 78.93
+            },
+            {
+              "oilCode": "3873",
+              "oilName": "胜利",
+              "oilShortName": "",
+              "oilCounted": 8.93
+            },
+            {
+              "oilCode": "4172",
+              "oilName": "CPC",
+              "oilShortName": "",
+              "oilCounted": 6.65
+            },
+            {
+              "oilCode": "3895",
+              "oilName": "阿布扎库姆",
+              "oilShortName": "",
+              "oilCounted": 5.49
+            }
+          ],
+
+          "slope": 1660.5161029411765,
+          "minLiquid": 2.4,
+          "maxLiquid": 16,
+          "adjustmentLiquidLevel": 0,
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "tankName": "T-107",
+          "tankCode": "Tank0234",
+          "areaName": "北山原油罐区",
+          "areaCode": "TankArea0019",
+          "warningCubage": 22586,
+          "availableWeight": 17888,
+          "status": "2",
+          "workRatio": 0,
+          "isVaild": true,
+          "switchedWeight": 0,
+          "carrySize": 0,
+          "spareTime": 0,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "3922",
+              "oilName": "穆尔班",
+              "oilShortName": "",
+              "oilCounted": 34.22
+            },
+            {
+              "oilCode": "4172",
+              "oilName": "CPC",
+              "oilShortName": "",
+              "oilCounted": 32
+            },
+            {
+              "oilCode": "4113",
+              "oilName": "罕戈",
+              "oilShortName": "",
+              "oilCounted": 12.43
+            },
+            {
+              "oilCode": "3873",
+              "oilName": "胜利",
+              "oilShortName": "",
+              "oilCounted": 9.48
+            },
+            {
+              "oilCode": "4211",
+              "oilName": "萨鲁鲁",
+              "oilShortName": "",
+              "oilCounted": 5.44
+            },
+            {
+              "oilCode": "4219",
+              "oilName": "萨宾诺",
+              "oilShortName": "",
+              "oilCounted": 5.07
+            },
+            {
+              "oilCode": "3895",
+              "oilName": "阿布扎库姆",
+              "oilShortName": "",
+              "oilCounted": 0.76
+            },
+            {
+              "oilCode": "3851",
+              "oilName": "大庆",
+              "oilShortName": "",
+              "oilCounted": 0.6
+            }
+          ],
+
+          "slope": 1660.7083088235295,
+          "minLiquid": 2.4,
+          "maxLiquid": 16,
+          "adjustmentLiquidLevel": 0,
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "tankName": "T-109",
+          "tankCode": "Tank0235",
+          "areaName": "北山原油罐区",
+          "areaCode": "TankArea0019",
+          "warningCubage": 39326,
+          "availableWeight": 23190,
+          "status": "1",
+          "workRatio": 0,
+          "isVaild": true,
+          "switchedWeight": 0,
+          "carrySize": 0,
+          "spareTime": 0,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "3922",
+              "oilName": "穆尔班",
+              "oilShortName": "",
+              "oilCounted": 100
+            }
+          ],
+
+          "slope": 2829.1794244604316,
+          "minLiquid": 2.4,
+          "maxLiquid": 16.3,
+          "adjustmentLiquidLevel": 0,
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "tankName": "T-110",
+          "tankCode": "Tank0236",
+          "areaName": "北山原油罐区",
+          "areaCode": "TankArea0019",
+          "warningCubage": 39269,
+          "availableWeight": 3847,
+          "status": "2",
+          "workRatio": 0,
+          "isVaild": true,
+          "switchedWeight": 0,
+          "carrySize": 0,
+          "spareTime": 0,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "4143",
+              "oilName": "塞巴",
+              "oilShortName": "",
+              "oilCounted": 91.01
+            },
+            {
+              "oilCode": "3851",
+              "oilName": "大庆",
+              "oilShortName": "",
+              "oilCounted": 8.99
+            }
+          ],
+
+          "slope": 2825.114820143885,
+          "minLiquid": 2.4,
+          "maxLiquid": 16.3,
+          "adjustmentLiquidLevel": 0,
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "tankName": "T-111",
+          "tankCode": "Tank0237",
+          "areaName": "北山原油罐区",
+          "areaCode": "TankArea0019",
+          "warningCubage": 39294,
+          "availableWeight": 24852,
+          "status": "13",
+          "workRatio": 0,
+          "isVaild": false,
+          "switchedWeight": 0,
+          "carrySize": 0,
+          "spareTime": 0,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "4143",
+              "oilName": "塞巴",
+              "oilShortName": "",
+              "oilCounted": 36.09
+            },
+            {
+              "oilCode": "3873",
+              "oilName": "胜利",
+              "oilShortName": "",
+              "oilCounted": 20.68
+            },
+            {
+              "oilCode": "3851",
+              "oilName": "大庆",
+              "oilShortName": "",
+              "oilCounted": 18.48
+            },
+            {
+              "oilCode": "4172",
+              "oilName": "CPC",
+              "oilShortName": "",
+              "oilCounted": 15.26
+            },
+            {
+              "oilCode": "3895",
+              "oilName": "阿布扎库姆",
+              "oilShortName": "",
+              "oilCounted": 9.49
+            }
+          ],
+
+          "slope": 2826.9289928057556,
+          "minLiquid": 2.4,
+          "maxLiquid": 16.3,
+          "adjustmentLiquidLevel": 0,
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "tankName": "T-112",
+          "tankCode": "Tank0238",
+          "areaName": "北山原油罐区",
+          "areaCode": "TankArea0019",
+          "warningCubage": 39270,
+          "availableWeight": 21807,
+          "status": "11",
+          "workRatio": 0,
+          "isVaild": true,
+          "switchedWeight": 0,
+          "carrySize": 0,
+          "spareTime": 0,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "3922",
+              "oilName": "穆尔班",
+              "oilShortName": "",
+              "oilCounted": 100
+            }
+          ],
+
+          "slope": 2825.1495683453236,
+          "minLiquid": 2.4,
+          "maxLiquid": 16.3,
+          "adjustmentLiquidLevel": 0,
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "tankName": "T-113",
+          "tankCode": "Tank0239",
+          "areaName": "北山原油罐区",
+          "areaCode": "TankArea0019",
+          "warningCubage": 39272,
+          "availableWeight": 4777,
+          "status": "12",
+          "workRatio": 0,
+          "isVaild": true,
+          "switchedWeight": 0,
+          "carrySize": 0,
+          "spareTime": 0,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "3922",
+              "oilName": "穆尔班",
+              "oilShortName": "",
+              "oilCounted": 60.06
+            },
+            {
+              "oilCode": "4130",
+              "oilName": "南巴",
+              "oilShortName": "",
+              "oilCounted": 13.44
+            },
+            {
+              "oilCode": "4141",
+              "oilName": "萨西",
+              "oilShortName": "",
+              "oilCounted": 11.64
+            },
+            {
+              "oilCode": "4211",
+              "oilName": "萨鲁鲁",
+              "oilShortName": "",
+              "oilCounted": 8.93
+            },
+            {
+              "oilCode": "4196",
+              "oilName": "桑格斯",
+              "oilShortName": "",
+              "oilCounted": 5.93
+            }
+          ],
+
+          "slope": 2825.339856115108,
+          "minLiquid": 2.4,
+          "maxLiquid": 16.3,
+          "adjustmentLiquidLevel": 0,
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "tankName": "T-108",
+          "tankCode": "Tank0240",
+          "areaName": "北山原油罐区",
+          "areaCode": "TankArea0019",
+          "warningCubage": 22584,
+          "availableWeight": 8916,
+          "status": "2",
+          "workRatio": 0,
+          "isVaild": true,
+          "switchedWeight": 977,
+          "carrySize": 0,
+          "spareTime": 0,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "4211",
+              "oilName": "萨鲁鲁",
+              "oilShortName": "",
+              "oilCounted": 74.16
+            },
+            {
+              "oilCode": "4113",
+              "oilName": "罕戈",
+              "oilShortName": "",
+              "oilCounted": 14.88
+            },
+            {
+              "oilCode": "3873",
+              "oilName": "胜利",
+              "oilShortName": "",
+              "oilCounted": 10.96
+            }
+          ],
+
+          "slope": 1660.5838970588236,
+          "minLiquid": 2.4,
+          "maxLiquid": 16,
+          "adjustmentLiquidLevel": 0,
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "tankName": "T-104",
+          "tankCode": "Tank0241",
+          "areaName": "北山原油罐区",
+          "areaCode": "TankArea0019",
+          "warningCubage": 23081,
+          "availableWeight": 0,
+          "status": "5",
+          "workRatio": 0,
+          "isVaild": true,
+          "switchedWeight": 0,
+          "carrySize": 0,
+          "spareTime": 0,
+          "fdPlanlibraryOilcombination": [
+          ],
+
+          "slope": 1660.5341726618706,
+          "minLiquid": 2.4,
+          "maxLiquid": 16.3,
+          "adjustmentLiquidLevel": 0,
+          "id": "0"
+        }
+      ]
+    }
+  ],
+  "oilPlan": [
+    {
+      "oilPlanCode": "berth0017",
+      "oilPlanName": "原油码头(港口)",
+      "oilPlanList": [
+      ]
+    }
+  ],
+  "pipeOilPlan": [
+    {
+      "oilPlanCode": "Pipeline0136",
+      "oilPlanName": "仪征长输管线",
+      "oilPlanList": [
+      ]
+    },
+    {
+      "oilPlanCode": "Pipeline0137",
+      "oilPlanName": "仪征长输管线复线",
+      "oilPlanList": [
+        {
+          "scheduleId": "0",
+          "availableTime": "2025-09-22 08:00:00",
+          "oilPlanCode": "Pipeline0137",
+          "oilPlanName": "仪征长输管线复线",
+          "oilWeight": 34500,
+          "speed": 841,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "4192",
+              "oilName": "阿塔普",
+              "oilShortName": null,
+              "oilCounted": 50
+            },
+            {
+              "oilCode": "4168",
+              "oilName": "布希奥斯",
+              "oilShortName": null,
+              "oilCounted": 50
+            }
+          ],
+
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "availableTime": "2025-09-24 01:00:00",
+          "oilPlanCode": "Pipeline0137",
+          "oilPlanName": "仪征长输管线复线",
+          "oilWeight": 23000,
+          "speed": 958,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "3851",
+              "oilName": "大庆",
+              "oilShortName": null,
+              "oilCounted": 100
+            }
+          ],
+
+          "id": "0"
+        },
+        {
+          "scheduleId": "0",
+          "availableTime": "2025-09-27 01:00:00",
+          "oilPlanCode": "Pipeline0137",
+          "oilPlanName": "仪征长输管线复线",
+          "oilWeight": 20000,
+          "speed": 1250,
+          "fdPlanlibraryOilcombination": [
+            {
+              "oilCode": "4113",
+              "oilName": "罕戈",
+              "oilShortName": null,
+              "oilCounted": 100
+            }
+          ],
+
+          "id": "0"
+        }
+      ]
+    }
+  ],
+  "targetList": null,
+  "targets": null,
+  "paramConfig": {
+    "scheduleId": "0",
+    "areaConfig": [
+      {
+        "areaCode": "TankArea0019",
+        "areaName": "北山原油罐区",
+        "vacantTime": 0,
+        "restTime": 0,
+        "level": 5,
+        "tankRestTime": [
+          {
+            "tankCode": [
+              "Tank0233",
+              "Tank0234"
+            ],
+            "restTime": 0
+          }
+        ],
+        "tankLevel": null,
+        "overflowRatio": 0,
+        "minInTankRatio": 10
+      }
+    ],
+    "isEnableMinorSpeed": false,
+    "processConfig": null,
+    "portOilConfig": [
+      {
+        "code": "berth0017",
+        "name": "原油码头(港口)",
+        "tankList": [
+          "Tank0233",
+          "Tank0234"
+        ]
+      }
+    ],
+    "pipeOilConfig": [
+      {
+        "code": "Pipeline0137",
+        "name": "仪征长输管线复线",
+        "tankList": [
+        ]
+      }
+    ],
+    "mixTankConfig": {
+      "enable": true,
+      "tankIn": {
+        "tanks": [
+          "Tank0235",
+          "Tank0236",
+          "Tank0237",
+          "Tank0238",
+          "Tank0239",
+          "Tank0240"
+        ],
+        "restTime": null,
+        "minWeight": null,
+        "maxWeight": 10000
+      },
+      "tankOut": {
+        "tanks": [
+          "Tank0233",
+          "Tank0234"
+        ],
+        "restTime": null,
+        "minWeight": 2000,
+        "maxWeight": null
+      },
+      "maxExchangeTankWeight": 5000,
+      "maxExchangeTankRatio": 22,
+      "exchangeTankSpeed": 250,
+      "plannedSize": 0,
+      "maxSwitchSpeed": 0,
+      "minorBlendTotalRatio": [
+        {
+          "processCode": "AtmosphericVacuum0017",
+          "processName": "1#常减压",
+          "ratio": 20
+        },
+        {
+          "processCode": "AtmosphericVacuum0018",
+          "processName": "2#常减压",
+          "ratio": 20
+        }
+      ]
+    },
+    "mainTankConfig": {
+      "majorCarries": [
+        {
+          "majorId": "AtmosphericVacuum0017",
+          "majorName": "1#常减压",
+          "majorSpeed": 400,
+          "carryVarySpeed": 45,
+          "carryStableSpeed": 60
+        },
+        {
+          "majorId": "AtmosphericVacuum0018",
+          "majorName": "2#常减压",
+          "majorSpeed": 500,
+          "carryVarySpeed": 90,
+          "carryStableSpeed": 160
+        }
+      ],
+      "majorTankIds": [
+      ],
+      "varyHour": 5,
+      "minTankEndSize": 20000,
+      "minCarrySize": 3000,
+      "tankMinCarrySize": [
+      ]
+    },
+    "id": "0"
+  }
+}

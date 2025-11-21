@@ -9,7 +9,7 @@
                       HorizontalAlignment="Right" CornerRadius="2" ClipToBounds="True" 
                       SnapsToDevicePixels="True" Background="#C9E7FF">
                 <StackPanel>
-                    <TextBlock Text="{Binding Content}" TextWrapping="Wrap" MaxWidth="150" FontSize="14" Foreground="Black"></TextBlock>
+                    <TextBlock Text="{Binding Content}" TextWrapping="Wrap" MaxWidth="250" FontSize="14" Foreground="Black"></TextBlock>
                 </StackPanel>
             </Border>
             <Path Fill="#C9E7FF" Stretch="Uniform" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-1,16,10,0">

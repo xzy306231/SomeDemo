@@ -18,5 +18,7 @@ namespace LearnApp.Control
         public DateTime DateTime { get; set; }
         //状态
         public int Status { get; set; }
+
+        public string Id { get; set; }
     }
 }

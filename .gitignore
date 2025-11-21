@@ -1,6 +1,12 @@
 /.vs
 /AOPDemo/bin
 /AOPDemo/obj
+/MEAI/bin
+/MEAI/obj
+/AIAgentWebApi/.vs
+/AIAgentWebApi/MyAIAgentWebApi/.vs
+/AIAgentWebApi/MyAIAgentWebApi/bin
+/AIAgentWebApi/MyAIAgentWebApi/obj
 /CancelTokenDemo/bin
 /CancelTokenDemo/obj
 /ConsoleApp1/bin

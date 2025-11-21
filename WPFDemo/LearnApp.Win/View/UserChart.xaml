@@ -4,41 +4,51 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LearnApp.Win.View"
+             xmlns:share="clr-namespace:LearnApp.Shared;assembly=LearnApp.Shared"
              xmlns:select="clr-namespace:LearnApp.Win.TempSelector"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"  d:DesignWidth="800">
     <UserControl.Resources>
         <select:ChatTemplateSelector x:Key="ChatTemplateSelector"/>
     </UserControl.Resources>
-    <DockPanel Background="White">
-        <!--顶部头内容-->
-        <Border DockPanel.Dock="Top" Padding="20,0" Height="62" BorderBrush="#ededed" SnapsToDevicePixels="True" BorderThickness="0,0,0,1.5">
-            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="郝帅" FontSize="18"></TextBlock>
-        </Border>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
+            <RowDefinition  Height="50"/>
+        </Grid.RowDefinitions>
 
-        <Grid DockPanel.Dock="Bottom" Height="150" Margin="2">
-            <TextBox  Text="{Binding Message}"/>
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="发送"  Width="50" Height="30"
-                    Command="{Binding SendCommand }" Margin="10,5"/>
-        </Grid>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <TextBlock Text="{Binding TypedText}" FontSize="20" TextWrapping="Wrap" Margin="10" />
+        </ScrollViewer>
 
 
-        <!--对话列表-->
-        <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
-            <ItemsControl ItemsSource="{Binding List}"  HorizontalContentAlignment="Stretch" ItemTemplateSelector="{StaticResource ChatTemplateSelector}" x:Name="chats" Background="White" Margin="10">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0"  Grid.Row="0" >
+            <ItemsControl ItemsSource="{Binding List}" Width="Auto" ItemTemplateSelector="{StaticResource ChatTemplateSelector}" 
+                   HorizontalContentAlignment="Stretch" x:Name="chats" Background="White" Margin="10">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel/>
+                        <StackPanel Orientation="Vertical"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.Template>
                     <ControlTemplate TargetType="{x:Type ItemsControl}">
                         <Grid>
-                            <ItemsPresenter></ItemsPresenter>
+                            <ItemsPresenter Width="Auto"></ItemsPresenter>
                         </Grid>
                     </ControlTemplate>
                 </ItemsControl.Template>
             </ItemsControl>
         </ScrollViewer>
-    </DockPanel>
+
+        <Grid Grid.Row="2"  Margin="5">
+            <TextBox  Text="{Binding Message,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" CaretIndex="0">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{ Binding SendCommand}" Key="Enter"/>
+                </TextBox.InputBindings>
+            </TextBox>
+
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="发送"  Width="50" Height="30"
+                    Command="{Binding SendCommand }" Margin="10,5"/>
+        </Grid>
+    </Grid>
 </UserControl>
