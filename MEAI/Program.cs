@@ -12,49 +12,73 @@ using System.Text.Json;
 using ChatMessage = Microsoft.Extensions.AI.ChatMessage;
 
 {
-    //OpenAIClientOptions clientOptions = new OpenAIClientOptions();
-    //clientOptions.Endpoint = new Uri(Keys.AzureOpenAIEndpoint);
+    OpenAIClientOptions clientOptions = new OpenAIClientOptions();
+    clientOptions.Endpoint = new Uri(Keys.AzureOpenAIEndpoint);
 
-    //OpenAIClient aiClient = new(new ApiKeyCredential(Keys.AzureOpenAIApiKey), clientOptions);
+    OpenAIClient aiClient = new(new ApiKeyCredential(Keys.AzureOpenAIApiKey), clientOptions);
 
-    //var chatClient = aiClient.GetChatClient("gpt-4o");
+    var chatClient = aiClient.GetChatClient("gpt-4o").AsIChatClient();
 
     //var chatService = chatClient.AsIChatClient();
 
-    //var response = await chatService.GetResponseAsync("南京富岛科技");
+    // var response = await chatService.GetResponseAsync("南京富岛科技");
 
-    //Console.WriteLine(response.ToString());
+    // Console.WriteLine(response.ToString());
 
-    //var rep = chatService.GetStreamingResponseAsync("南京富岛科技");
+    string input = "";
+    var agent = chatClient.CreateAIAgent(
+        options: new ChatClientAgentOptions
+        {
+            Instructions = "聊天小妹",
+            Name = "chat girl",
+            ChatMessageStoreFactory = ctx => new InMemoryChatMessageStore(
+            serializedStoreState: ctx.SerializedState,
+            jsonSerializerOptions: ctx.JsonSerializerOptions)
+        });
 
-    //await foreach (var item in rep)
-    //{
-    //    Console.Write(item);
-    //    await Task.Delay(100);
-    //}
+    var thread = agent.GetNewThread();
+
+    while (true)
+    {
+        input = Console.ReadLine() ?? "你好";
+
+        if (input == "exit")
+            break;
+
+        var rep = agent.RunStreamingAsync(input, thread);
+
+        await foreach (var item in rep)
+        {
+            Console.Write(item);
+            await Task.Delay(100);
+        }
+        Console.WriteLine();
+    }
+    Console.ReadKey();
 
     //var azureEndpoint = new Uri(Keys.AzureOpenAIEndpoint);
     //var azureCredential = new ApiKeyCredential(Keys.AzureOpenAIApiKey);
     //AzureOpenAIClient azureClient = new AzureOpenAIClient(azureEndpoint, azureCredential);
 
-    //    var embeddingDeployment = "text-embedding-3-small";
+    //var embeddingDeployment = "text-embedding-3-small";
     //    var documents = new[]
     //    {
     //    "Microsoft.Extensions.AI 为 .NET 提供统一 AI 抽象。",
     //    "向量嵌入可以用来执行语义搜索和相似度匹配。"
     //};
 
-    //    var embeddingsClient = aiClient.GetEmbeddingClient(embeddingDeployment);
+    //var embeddingsClient = aiClient.GetEmbeddingClient(embeddingDeployment);
 
-    //    IEmbeddingGenerator<string, Embedding<float>> embeddingGenerator = embeddingsClient.AsIEmbeddingGenerator();
+    // IEmbeddingGenerator<string, Embedding<float>> embeddingGenerator = embeddingsClient.AsIEmbeddingGenerator();
 
-    //    GeneratedEmbeddings<Embedding<float>> generatedEmbeddings = await embeddingGenerator.GenerateAsync(documents);
+
+    //var generatedEmbeddings = await embeddingGenerator.GenerateAsync("Microsoft.Extensions.AI 为 .NET 提供统一 AI 抽象");
 
     //    var singleVector = await embeddingGenerator.GenerateVectorAsync("嵌入生成器适合语义检索");
     //    Console.WriteLine($"向量维度: {singleVector.Length}");
 
 
-    var chatService = AIClientHelper.GetDefaultChatClient(enableLogging: true);
+    // var chatService = AIClientHelper.GetDefaultChatClient(enableLogging: true);
 
     //var client = AIClientHelper.GetAzureOpenAIClient(true);
     //var embeddingGenerator = client.GetEmbeddingClient("text-embedding-3-small").AsIEmbeddingGenerator();
@@ -145,7 +169,7 @@ using ChatMessage = Microsoft.Extensions.AI.ChatMessage;
 
     //var tools = AIFunctionFactory.Create(GetCurrentWeather);
 
-   await ScheduleProgram.Main();
+    await ScheduleProgram.Main();
 
     var travelTools = new TravelToolset();
 
@@ -171,7 +195,7 @@ using ChatMessage = Microsoft.Extensions.AI.ChatMessage;
     //    Tools = batchRegisteredTools
     //};
 
-   // var datetimeTool = AIFunctionFactory.Create(() => DateTime.Now, "get_current_datetime", "获取当前的日期和时间");
+    // var datetimeTool = AIFunctionFactory.Create(() => DateTime.Now, "get_current_datetime", "获取当前的日期和时间");
 
     //var client = chatService.AsBuilder()
     //    .UseFunctionInvocation(configure: options =>
