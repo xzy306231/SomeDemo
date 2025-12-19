@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Richisland.Aspire.ApiService/Richisland.Aspire.ApiService.csproj" />
+  <Project Path="Richisland.Aspire.AppHost/Richisland.Aspire.AppHost.csproj" />
+  <Project Path="Richisland.Aspire.ServiceDefaults/Richisland.Aspire.ServiceDefaults.csproj" />
+  <Project Path="Richisland.Aspire.Web/Richisland.Aspire.Web.csproj" />
+</Solution>

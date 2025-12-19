@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="LearnApp.Control.Component.GanttChartControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnApp.Control.Component"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style x:Key="ScrollBarThumbVertical" TargetType="Thumb">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+                        <Rectangle Fill="{TemplateBinding Background}"
+                                   RadiusX="2" RadiusY="2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 时间刻度区域 -->
+        <Border Grid.Row="0" BorderBrush="LightGray" BorderThickness="0,0,0,1"
+                Background="WhiteSmoke" Height="30">
+            <ScrollViewer x:Name="timelineScrollViewer" HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Hidden">
+                <Canvas x:Name="timelineCanvas" Height="30"/>
+            </ScrollViewer>
+        </Border>
+
+        <!-- 主体区域 -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 任务标签区域 -->
+            <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Hidden"
+                          x:Name="taskLabelsScrollViewer">
+                <StackPanel x:Name="taskLabelsPanel" Width="200" />
+            </ScrollViewer>
+
+            <!-- 甘特图主体 -->
+            <ScrollViewer Grid.Column="1" 
+                          x:Name="mainScrollViewer"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Auto"
+                          ScrollChanged="OnScrollChanged">
+                <Canvas x:Name="mainCanvas"/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

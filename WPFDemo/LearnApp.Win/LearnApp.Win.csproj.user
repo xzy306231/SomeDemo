@@ -52,6 +52,12 @@
     <Compile Update="View\UserGantt.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\UserGanttAI.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserGanttControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\UserLiquidTrend.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

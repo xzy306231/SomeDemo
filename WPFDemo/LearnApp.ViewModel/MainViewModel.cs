@@ -38,6 +38,24 @@ namespace LearnApp.ViewModel
             #region 菜单初始化
             TreeList = new List<MenuItemModelDto>();
             {
+                MenuItemModelDto tt1 = new MenuItemModelDto
+                {
+                    Header = "甘特图控件",
+                    IconCode = "\ue611",
+                    TargetView = "UserGanttControl",
+                    OpenViewCommand = new AsyncRelayCommand<MenuItemModelDto>(OpenView)
+                };
+                TreeList.Add(tt1);
+
+                MenuItemModelDto tt12 = new MenuItemModelDto
+                {
+                    Header = "甘特图控件AI",
+                    IconCode = "\ue611",
+                    TargetView = "UserGanttAI",
+                    OpenViewCommand = new AsyncRelayCommand<MenuItemModelDto>(OpenView)
+                };
+                TreeList.Add(tt12);
+
                 MenuItemModelDto tim0a = new MenuItemModelDto
                 {
                     Header = "组态界面",

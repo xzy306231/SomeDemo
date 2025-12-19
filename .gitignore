@@ -49,3 +49,12 @@
 /YamlDotNetDemo/obj
 /OR.Demo/bin
 /OR.Demo/obj
+/Richisland.Aspire/.vs
+/Richisland.Aspire/Richisland.Aspire.ApiService/bin/Debug/net10.0
+/Richisland.Aspire/Richisland.Aspire.ApiService/obj
+/Richisland.Aspire/Richisland.Aspire.AppHost/bin/Debug/net10.0
+/Richisland.Aspire/Richisland.Aspire.AppHost/obj
+/Richisland.Aspire/Richisland.Aspire.ServiceDefaults/bin/Debug/net10.0
+/Richisland.Aspire/Richisland.Aspire.ServiceDefaults/obj
+/Richisland.Aspire/Richisland.Aspire.Web/bin/Debug/net10.0
+/Richisland.Aspire/Richisland.Aspire.Web/obj

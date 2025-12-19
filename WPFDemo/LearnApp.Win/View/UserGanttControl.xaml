@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="LearnApp.Win.View.UserGanttControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnApp.Win.View"
+             xmlns:ctrl="clr-namespace:LearnApp.Control.Component;assembly=LearnApp.Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <!-- 工具栏 -->
+        <ToolBar DockPanel.Dock="Top">
+            <Button Content="添加任务" Click="AddTask_Click"/>
+            <Button Content="导出图片" Click="ExportImage_Click"/>
+            <Separator/>
+            <TextBlock Text="时间单位:" VerticalAlignment="Center"/>
+            <ComboBox Width="80" SelectedIndex="0">
+                <ComboBoxItem Content="天"/>
+                <ComboBoxItem Content="周"/>
+                <ComboBoxItem Content="月"/>
+            </ComboBox>
+        </ToolBar>
+
+        <!-- 甘特图 -->
+        <ScrollViewer>
+            <ctrl:GanttChartControl  x:Name="ganttChart"
+                                     Tasks="{Binding Data.Tasks}"
+                                     ProjectStartDate="{Binding Data.ProjectStart}"
+                                     ProjectEndDate="{Binding Data.ProjectEnd}"/>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

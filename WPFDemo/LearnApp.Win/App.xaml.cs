@@ -45,6 +45,7 @@ namespace LearnApp.Win
             services.AddTransient<UserConfigViewModel>();
             services.AddTransient<SelectOilVM>();
             services.AddTransient<UserChatViewModel>();
+            services.AddTransient<UserGanttControlViewModel>();
 
             return services.BuildServiceProvider();
         }
