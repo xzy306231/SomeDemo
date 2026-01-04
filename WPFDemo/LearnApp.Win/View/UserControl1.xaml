@@ -37,7 +37,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <ctrl:Waiting Text="计算中..." Width="200" Height="200" IsStart="{Binding ElementName=toggle, Path=IsChecked}"/>
-            <ToggleButton Content="计算中" x:Name="toggle" Width="100" Height="50" IsThreeState="False"/>
+            <ToggleButton Content="计算中" x:Name="toggle" Width="150" Height="100" IsThreeState="False" Padding="0,0" Margin="20"/>
             <ScrollViewer VerticalScrollBarVisibility="Visible" Width="500">
                 <ItemsControl ItemsSource="{Binding List}">
                     <ItemsControl.ItemsPanel>

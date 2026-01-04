@@ -38,7 +38,7 @@
         <!-- 主体区域 -->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -46,7 +46,7 @@
             <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto"
                           HorizontalScrollBarVisibility="Hidden"
                           x:Name="taskLabelsScrollViewer">
-                <StackPanel x:Name="taskLabelsPanel" Width="200" />
+                <StackPanel x:Name="taskLabelsPanel" Width="Auto" />
             </ScrollViewer>
 
             <!-- 甘特图主体 -->
