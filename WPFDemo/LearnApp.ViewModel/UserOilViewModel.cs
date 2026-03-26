@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using LearnApp.Shared.Base;
 using LearnApp.Shared.BaseBusinessDto;
 using LearnApp.Shared.Utils;
@@ -10,17 +11,15 @@ using System.Windows.Input;
 
 namespace LearnApp.ViewModel
 {
-    public class UserOilViewModel : BaseBindable
+    public partial class UserOilViewModel : BaseBindable
     {
         public ICommand SearchCommand { get; }
         public ICommand CheckCommand { get; }
         public ICommand UnCheckCommand { get; }
-        public ICommand ClearCommand { get; }
         public ICommand RemoveSelectOilCommand { get; }
         public UserOilViewModel()
         {
             oils = new ObservableCollection<OilDto>();
-            selectOils = new ObservableCollection<OilDto>();
             GetOil().ForEach(x =>
             {
                 oils.Add(x);
@@ -29,9 +28,16 @@ namespace LearnApp.ViewModel
             SearchCommand = new RelayCommand<KeyEventArgs>(Search);
             CheckCommand = new RelayCommand<OilDto>(Check);
             UnCheckCommand = new RelayCommand<OilDto>(UnCheck);
-            ClearCommand = new RelayCommand(Clear);
             RemoveSelectOilCommand = new RelayCommand<OilDto>(RemoveSelectOil);
+
+            SelectOils.CollectionChanged += OnSelectOilsCollectionChanged;
         }
+
+        private void OnSelectOilsCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            ClearCommand.NotifyCanExecuteChanged();
+        }
+
         private void RemoveSelectOil(OilDto oil)
         {
             SelectOils.Remove(oil);
@@ -39,6 +45,18 @@ namespace LearnApp.ViewModel
             Oils.First(x => x.OilCode == oil.OilCode).IsChecked = false;
             Oils.First(x => x.OilCode == oil.OilCode).Percent = 0;
         }
+        private bool CanExcuteClearBtn()
+        {
+            if (SelectOils is not null && SelectOils.Any())
+                return true;
+            return false;
+        }
+
+        [NotifyCanExecuteChangedFor(nameof(ClearCommand))]
+        [ObservableProperty]
+        private ObservableCollection<OilDto> _selectOils=new();
+
+        [RelayCommand(CanExecute = nameof(CanExcuteClearBtn))]
         private void Clear()
         {
             SelectOils.Clear();
@@ -97,13 +115,6 @@ namespace LearnApp.ViewModel
         {
             get { return oils; }
             set { SetProperty(ref oils, value); }
-        }
-
-        private ObservableCollection<OilDto> selectOils;
-        public ObservableCollection<OilDto> SelectOils
-        {
-            get { return selectOils; }
-            set { SetProperty(ref selectOils, value); }
         }
     }
 }

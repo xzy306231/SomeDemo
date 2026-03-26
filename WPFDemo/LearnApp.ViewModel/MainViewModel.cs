@@ -38,6 +38,15 @@ namespace LearnApp.ViewModel
             #region 菜单初始化
             TreeList = new List<MenuItemModelDto>();
             {
+                MenuItemModelDto aa = new MenuItemModelDto
+                {
+                    Header = "测试",
+                    IconCode = "\ue611",
+                    TargetView = "UserTest",
+                    OpenViewCommand = new AsyncRelayCommand<MenuItemModelDto>(OpenView)
+                };
+                TreeList.Add(aa);
+
                 MenuItemModelDto tt1 = new MenuItemModelDto
                 {
                     Header = "甘特图控件",

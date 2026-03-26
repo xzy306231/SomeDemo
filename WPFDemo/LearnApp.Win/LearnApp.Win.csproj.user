@@ -76,6 +76,9 @@
     <Compile Update="View\UserScheduleTankList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\UserTest.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Window1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
